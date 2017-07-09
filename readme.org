@@ -1,0 +1,3 @@
+** std.experimental logger with android style output
+
+you can use the logger itself to do some coloring, or some 3rd party programs that color android output (e.g. [[https://github.com/flxo/rogcat][rotgcat]], [[https://github.com/JakeWharton/pidcat][pidcat]]).
