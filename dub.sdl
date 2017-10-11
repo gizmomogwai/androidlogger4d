@@ -3,4 +3,15 @@ description "An experimental logger outputting android style logs."
 authors "Christian Köstlin"
 copyright "Copyright © 2017, Christian Köstlin"
 license "MIT"
-dependency "colored" version="==0.0.5"
+dependency "colored" version="~>0.0.7"
+
+configuration "executable" {
+  targetPath "out/main"
+  targetType "executable"
+}
+
+configuration "library" {
+  targetPath "out/lib"
+
+  excludedSourceFiles "source/app.d"
+}

@@ -10,9 +10,7 @@ class AndroidLogger : FileLogger
     import std.process;
     import colored;
 
-    alias fg = StringWithForeground!(AnsiColor);
     string[LogLevel] logLevel2String;
-    fg[LogLevel] logLevel2Fg;
     bool withColors;
 
     this(bool withColors = true) @system
@@ -29,7 +27,7 @@ class AndroidLogger : FileLogger
         return text(id).replace("Tid(", "").replace(")", "");
     }
 
-    override void writeLogMsg(ref LogEntry payload)
+    override void writeLogMsg(ref LogEntry payload) @trusted
     {
         with (payload)
         {
