@@ -10,12 +10,12 @@ class AndroidLogger : FileLogger
     import std.process;
     import colored;
 
-    string[LogLevel] logLevel2String;
-    bool withColors;
+    private string[LogLevel] logLevel2String;
+    private bool withColors;
 
-    this(bool withColors = true) @system
+    this(bool withColors = true, LogLevel level = LogLevel.all) @system
     {
-        super(stdout, LogLevel.all);
+        super(stdout, level);
         this.withColors = withColors;
         initLogLevel2String();
     }
