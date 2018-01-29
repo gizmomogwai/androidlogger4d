@@ -16,3 +16,6 @@ configuration "library" {
 
   excludedSourceFiles "source/app.d"
 }
+sourcePaths "source" "out/generated/packageversion"
+importPaths "source" "out/generated/packageversion"
+preGenerateCommands "dub run packageversion -- --packageName=androidlogger"

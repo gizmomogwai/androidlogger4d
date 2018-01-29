@@ -1,3 +1,9 @@
+/++
+ + Copyright: Copyright © 2017, Christian Köstlin
+ + License: MIT
+ + Authors: Christian Koestlin
+ +/
+
 module androidlogger;
 
 import std.experimental.logger;
