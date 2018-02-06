@@ -3,7 +3,11 @@ description "An experimental logger outputting android style logs."
 authors "Christian Köstlin"
 copyright "Copyright © 2017, Christian Köstlin"
 license "MIT"
-dependency "colored" version="~>0.0.7"
+
+dependency "colored" version="~>0.0.10"
+dependency "packageversion" version="~>0.0.12"
+subConfiguration "packageversion" "library"
+
 x:ddoxFilterArgs "--min-protection=Private"
 
 configuration "executable" {
@@ -16,6 +20,7 @@ configuration "library" {
 
   excludedSourceFiles "source/app.d"
 }
+
 sourcePaths "source" "out/generated/packageversion"
 importPaths "source" "out/generated/packageversion"
 preGenerateCommands "dub run packageversion -- --packageName=androidlogger"
