@@ -15,14 +15,14 @@ sourceFiles "out/generated/packageversion/androidlogger/packageversion.d"
 sourcePaths "source" "out/generated/packageversion"
 importPaths "source" "out/generated/packageversion"
 
-configuration "executable" {
-  targetType "executable"
-  targetPath "out/main"
-}
-
 configuration "library" {
+  targetType "library"
   targetPath "out/lib"
 
   excludedSourceFiles "source/app.d"
 }
 
+configuration "executable" {
+  targetType "executable"
+  targetPath "out/main"
+}
