@@ -2,7 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>http://127.0.0.1/index.html</loc></url>
 <url><loc>http://127.0.0.1/androidlogger/packageversion.html</loc></url>
-<url><loc>http://127.0.0.1/androidlogger/packageversion/PACKAGE_VERSION.html</loc></url>
+<url><loc>http://127.0.0.1/androidlogger/packageversion/LICENSE.html</loc></url>
+<url><loc>http://127.0.0.1/androidlogger/packageversion/NAME.html</loc></url>
+<url><loc>http://127.0.0.1/androidlogger/packageversion/VERSION.html</loc></url>
 <url><loc>http://127.0.0.1/androidlogger.html</loc></url>
 <url><loc>http://127.0.0.1/androidlogger/AndroidLogger.html</loc></url>
 <url><loc>http://127.0.0.1/androidlogger/AndroidLogger.this.html</loc></url>
