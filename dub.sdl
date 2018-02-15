@@ -10,7 +10,7 @@ dependency "colored" version="~>0.0.11"
 dependency "packageversion" version="~>0.0.15"
 subConfiguration "packageversion" "library"
 
-preBuildCommands "dub run packageversion -- --packageName=androidlogger"
+preBuildCommands "packageversion --packageName=androidlogger || dub run packageversion -- --packageName=androidlogger"
 sourceFiles "out/generated/packageversion/androidlogger/packageversion.d"
 sourcePaths "source" "out/generated/packageversion"
 importPaths "source" "out/generated/packageversion"
