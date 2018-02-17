@@ -6,11 +6,11 @@ license "MIT"
 
 x:ddoxFilterArgs "--min-protection=Private"
 
-dependency "colored" version="~>0.0.12"
-dependency "packageversion" version="~>0.0.15"
+dependency "colored" version="~>0.0.13"
+dependency "packageversion" version="~>0.0.16"
 subConfiguration "packageversion" "library"
 
-preGenerateCommands "packageversion --packageName=androidlogger || dub run packageversion -- --packageName=androidlogger"
+preGenerateCommands "packageversion || dub run packageversion"
 sourceFiles "out/generated/packageversion/androidlogger/packageversion.d"
 sourcePaths "source" "out/generated/packageversion"
 importPaths "source" "out/generated/packageversion"
