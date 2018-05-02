@@ -18,8 +18,6 @@ importPaths "source" "out/generated/packageversion"
 configuration "library" {
   targetType "library"
   targetPath "out/lib"
-
-  excludedSourceFiles "source/app.d"
 }
 
 configuration "executable" {
