@@ -11,7 +11,7 @@ dependency "packageversion" version="~>0.0.16"
 subConfiguration "packageversion" "library"
 
 preGenerateCommands "packageversion || dub run packageversion"
-sourceFile "out/generated/packageversion/androidlogger/packageversion.d"
+sourceFiles "out/generated/packageversion/androidlogger/packageversion.d"
 sourcePaths "source" "out/generated/packageversion"
 importPaths "source" "out/generated/packageversion"
 
