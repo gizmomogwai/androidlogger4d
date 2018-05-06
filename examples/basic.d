@@ -1,8 +1,3 @@
-/+ dub.sdl:
-name "basic"
-dependency "androidlogger" path="../"
-+/
-
 /++
  + Copyright: Copyright © 2017, Christian Köstlin
  + License: MIT

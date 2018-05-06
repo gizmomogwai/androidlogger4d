@@ -7,20 +7,14 @@ license "MIT"
 x:ddoxFilterArgs "--min-protection=Private"
 
 dependency "colored" version="~>0.0.13"
-dependency "packageversion" version="~>0.0.16"
-subConfiguration "packageversion" "library"
-
-preGenerateCommands "packageversion || dub run packageversion"
-sourceFiles "out/generated/packageversion/androidlogger/packageversion.d"
-sourcePaths "source" "out/generated/packageversion"
-importPaths "source" "out/generated/packageversion"
 
 configuration "library" {
   targetType "library"
   targetPath "out/lib"
 }
 
-configuration "executable" {
+configuration "basic" {
   targetType "executable"
-  targetPath "out/main"
+  targetPath "out/exe"
+  mainSourceFile "examples/basic.d"
 }

@@ -6,8 +6,6 @@
 
 module androidlogger;
 
-public import androidlogger.packageversion;
-
 import std.experimental.logger;
 
 class AndroidLogger : FileLogger
