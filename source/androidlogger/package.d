@@ -7,6 +7,7 @@
 module androidlogger;
 
 import std.experimental.logger;
+public import androidlogger.packageversion;
 
 class AndroidLogger : FileLogger
 {
@@ -19,9 +20,9 @@ class AndroidLogger : FileLogger
     private string[LogLevel] logLevel2String;
     private bool withColors;
 
-    this(bool withColors = true, LogLevel level = LogLevel.all) @system
+    this(File file = stdout, bool withColors = true, LogLevel level = LogLevel.all) @system
     {
-        super(stdout, level);
+        super(file, level);
         this.withColors = withColors;
         initLogLevel2String();
     }
