@@ -1,0 +1,10 @@
+name "androidlogger-example-basic"
+description "Basic example for androidlogger"
+authors "Christian Koestlin"
+copyright "Copyright (c) 2018, Christian Koestlin"
+license "MIT"
+
+targetName  "androidlogger-example-basic"
+targetPath "out/main"
+
+dependency "androidlogger" path="../.."
