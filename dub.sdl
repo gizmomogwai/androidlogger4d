@@ -10,9 +10,9 @@ preGenerateCommands "packageversion || dub run packageversion"
 sourceFiles "out/generated/packageversion/androidlogger/packageversion.d"
 sourcePaths "source" "out/generated/packageversion"
 importPaths "source" "out/generated/packageversion"
-dependency "packageversion" version="~>0.0.18"
+dependency "packageversion" version="~>0.0.19"
 
-dependency "colored" version="~>0.0.20"
+dependency "colored" version="~>0.0.22"
 
 configuration "library" {
   targetType "library"

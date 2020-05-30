@@ -6,6 +6,8 @@
 
 module androidlogger;
 
+@safe:
+
 import std.experimental.logger;
 public import androidlogger.packageversion;
 
