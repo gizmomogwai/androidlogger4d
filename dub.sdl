@@ -6,7 +6,7 @@ license "MIT"
 
 x:ddoxFilterArgs "--min-protection=Private"
 
-dependency "colored" version="~>0.0.26"
+dependency "colored" version="~>0.0.27"
 
 configuration "library" {
   targetType "library"
