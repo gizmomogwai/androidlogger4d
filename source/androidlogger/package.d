@@ -91,9 +91,9 @@ class AndroidLogger : FileLogger
         case LogLevel.info:
             return s.defaultColor.onDefaultColor;
         case LogLevel.warning:
-            return s.green.onDefaultColor;
-        case LogLevel.error:
             return s.yellow.onDefaultColor;
+        case LogLevel.error:
+            return s.red.onDefaultColor;
         case LogLevel.critical:
             return s.black.onRed;
         case LogLevel.fatal:
