@@ -43,9 +43,9 @@ class AndroidLogger : FileLogger
             // 06-06 12:14:46.355 372 18641 D audio_hw_primary: disable_audio_route: reset and update
             // DATE  TIME         PID TID   LEVEL TAG           Message
             auto h = timestamp.fracSecs.split!("msecs");
-            auto idx = msg.indexOf(':');
             string tag = ""; // "%s.%d".format(file, line),
             string text = "";
+            auto idx = msg.indexOf(':');
             if (idx == -1)
             {
                 tag = "stdout";
