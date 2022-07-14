@@ -12,3 +12,4 @@ configuration "library" {
   targetType "library"
   targetPath "out/lib"
 }
+preGenerateCommands "$DC --version"
