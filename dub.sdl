@@ -13,3 +13,4 @@ configuration "library" {
   targetPath "out/lib"
 }
 preGenerateCommands "$DC --version"
+x:ddoxFilterArgs "--min-protection=Public"
