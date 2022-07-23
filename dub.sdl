@@ -14,3 +14,4 @@ configuration "library" {
 }
 preGenerateCommands "$DC --version"
 x:ddoxFilterArgs "--min-protection=Public"
+x:ddoxTool "scod"
