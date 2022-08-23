@@ -4,15 +4,13 @@ authors "Christian Koestlin"
 copyright "Copyright (c) 2017, Christian Koestlin"
 license "MIT"
 
-x:ddoxFilterArgs "--min-protection=Private"
-
 dependency "colored" version="~>0.0.27"
 
 configuration "library" {
   targetType "library"
   targetPath "out/lib"
 }
+
 preGenerateCommands "$DC --version"
 x:ddoxFilterArgs "--min-protection=Public"
 x:ddoxTool "scod"
-PRE_GENERATE_COMMANDS "$DC --version"
