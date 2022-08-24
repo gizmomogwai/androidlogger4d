@@ -4,7 +4,7 @@ authors "Christian Koestlin"
 copyright "Copyright (c) 2017, Christian Koestlin"
 license "MIT"
 
-dependency "colored" version="~>0.0.27"
+dependency "colored" version="~>0.0.28"
 
 configuration "library" {
   targetType "library"
