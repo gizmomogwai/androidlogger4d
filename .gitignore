@@ -7,3 +7,4 @@ __test__*__
 /libandroidlogger.a
 out
 docs
+*.lst
