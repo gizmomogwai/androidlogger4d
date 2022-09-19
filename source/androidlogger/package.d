@@ -8,30 +8,34 @@ module androidlogger;
 
 @safe:
 
-import std.experimental.logger;
+import colored : red, black, yellow, defaultColor, onDefaultColor, onRed;
+import std.array : replace;
+import std.concurrency : Tid;
+import std.conv : text;
+import std.experimental.logger : FileLogger;
+import std.experimental.logger.core : Logger, LogLevel;
+import std.format : format;
+import std.process : execute, thisProcessID;
+import std.stdio : File, stdout;
+import std.string : indexOf, split;
 
 class AndroidLogger : FileLogger
 {
-    import std.stdio;
-    import std.string;
-    import std.concurrency;
-    import std.process;
-    import colored;
 
     private string[LogLevel] logLevel2String;
     private bool withColors;
+    private bool developerMode;
 
-    this(File file = stdout, bool withColors = true, LogLevel level = LogLevel.all) @system
+    this(File file = stdout, bool withColors = true, LogLevel level = LogLevel.all, bool developerMode = true) @system
     {
         super(file, level);
         this.withColors = withColors;
+        this.developerMode = developerMode;
         initLogLevel2String();
     }
 
     static string tid2string(Tid id) @trusted
     {
-        import std.conv : text;
-
         return text(id).replace("Tid(", "").replace(")", "");
     }
 
@@ -56,14 +60,23 @@ class AndroidLogger : FileLogger
                 tag = msg[0 .. idx];
                 text = msg[idx + 1 .. $];
             }
-            this.file.lockingTextWriter()
-                .put(colorize("%02d-%02d %02d:%02d:%02d.%03d %d %s %s %s: %s\n".format(timestamp.month, // DATE
-                        timestamp.day, timestamp.hour, // TIME
-                        timestamp.minute, timestamp.second,
-                        h.msecs, std.process.thisProcessID, // PID
-                        tid2string(threadId), // TID
-                        logLevel2String[logLevel], tag, text), logLevel).toString);
-
+            if (developerMode)
+            {
+                this.file.lockingTextWriter()
+                    .put(colorize("%02d-%02d %02d:%02d:%02d.%03d %d %s %s %s: %s\n".format(timestamp.month, // DATE
+                                                                                           timestamp.day, timestamp.hour, // TIME
+                                                                                           timestamp.minute, timestamp.second,
+                                                                                           h.msecs, thisProcessID, // PID
+                                                                                           tid2string(threadId), // TID
+                                                                                           logLevel2String[logLevel], tag, text), logLevel).toString);
+            }
+            else
+            {
+                this
+                    .file
+                    .lockingTextWriter
+                    .put(colorize("%s: %s\n".format(tag, text), logLevel).toString);
+            }
         }
     }
 
