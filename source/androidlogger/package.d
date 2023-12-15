@@ -7,7 +7,6 @@
 module androidlogger;
 
 @safe:
-
 import colored : red, black, yellow, defaultColor, onDefaultColor, onRed;
 import std.array : replace;
 import std.concurrency : Tid;
@@ -18,6 +17,7 @@ import std.format : format;
 import std.process : execute, thisProcessID;
 import std.stdio : File, stdout;
 import std.string : indexOf, split;
+import std.conv : to;
 
 class AndroidLogger : FileLogger
 {
@@ -39,7 +39,7 @@ class AndroidLogger : FileLogger
         return text(id).replace("Tid(", "").replace(")", "");
     }
 
-    override void writeLogMsg(ref LogEntry payload) @trusted
+    override @safe void writeLogMsg(ref LogEntry payload)
     {
         with (payload)
         {
@@ -62,20 +62,19 @@ class AndroidLogger : FileLogger
             }
             if (developerMode)
             {
-                this.file.lockingTextWriter()
-                    .put(colorize("%02d-%02d %02d:%02d:%02d.%03d %d %s %s %s: %s\n".format(timestamp.month, // DATE
-                                                                                           timestamp.day, timestamp.hour, // TIME
-                                                                                           timestamp.minute, timestamp.second,
-                                                                                           h.msecs, thisProcessID, // PID
-                                                                                           tid2string(threadId), // TID
-                                                                                           logLevel2String[logLevel], tag, text), logLevel).toString);
+                this.file.lockingTextWriter().put(
+                  colorize("%02d-%02d %02d:%02d:%02d.%03d %d %s %s %s: %s\n"
+                           .format(timestamp.month, // DATE
+                                   timestamp.day, timestamp.hour, // TIME
+                                   timestamp.minute, timestamp.second,
+                                   h.msecs, thisProcessID, // PID
+                                   tid2string(threadId), // TID
+                                   logLevel2String[logLevel], tag, text), logLevel).to!string
+                );
             }
             else
             {
-                this
-                    .file
-                    .lockingTextWriter
-                    .put(colorize("%s: %s\n".format(tag, text), logLevel).toString);
+                this.file.lockingTextWriter.put(colorize("%s\n".format(text), logLevel).to!string);
             }
         }
     }
