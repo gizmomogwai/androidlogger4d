@@ -7,17 +7,17 @@
 module androidlogger;
 
 @safe:
-import colored : red, black, yellow, defaultColor, onDefaultColor, onRed;
+import colored : black, defaultColor, onDefaultColor, onRed, red, yellow;
 import std.array : replace;
 import std.concurrency : Tid;
 import std.conv : text;
+import std.conv : to;
 import std.experimental.logger : FileLogger;
 import std.experimental.logger.core : Logger, LogLevel;
 import std.format : format;
 import std.process : execute, thisProcessID;
 import std.stdio : File, stdout;
 import std.string : indexOf, split;
-import std.conv : to;
 
 class AndroidLogger : FileLogger
 {

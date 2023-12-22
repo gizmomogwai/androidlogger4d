@@ -1,0 +1,26 @@
+name "androidlogger"
+description "An experimental logger outputting android style logs."
+authors "Christian Koestlin"
+copyright "Copyright (c) 2017, Christian Koestlin"
+license "MIT"
+
+dependency "colored" version="~>0.0.28"
+preGenerateCommands "$DC --version"
+x:ddoxFilterArgs "--min-protection=Public"
+x:ddoxTool "scod"
+
+configuration "library" {
+  targetType "library"
+  targetPath "out/lib"
+}
+
+configuration "unittest" {
+  targetType "executable"
+  targetName "unittest"
+  targetPath "out/test"
+
+  dependency "unit-threaded" version="~>2.1.0"
+
+  mainSourceFile "source/testsuite.d"
+  postRunCommands "$DUB run lst2errormessages || true"
+}
