@@ -4,18 +4,24 @@
  + Authors: Christian Koestlin
  +/
 
-import androidlogger;
-import std.experimental.logger;
-import std.stdio;
+import androidlogger : AndroidLogger;
+import std.logger : trace, info, warning, error, critical, fatal, sharedLog;
+import std.stdio : stderr;
 
 int main(string[] args)
 {
-    sharedLog = new AndroidLogger(stderr, args.length == 2 ? args[1] == "true" : true);
-    trace("trace");
-    info("info");
-    warning("warning");
-    error("error");
-    critical("critical");
-    fatal("fatal");
+    // dfmt off
+    sharedLog = cast(shared) new AndroidLogger(
+        file : stderr,
+        withColors: args.length < 2 || args[1] == "true",
+        developerMode: args.length < 3 || args[2] == "true"
+    );
+    // dfmt on
+    trace("trace logmessage");
+    info("info logmessage");
+    warning("warning logmessage");
+    error("error logmessage");
+    critical("critical logmessage");
+    fatal("fatal logmessage");
     return 0;
 }

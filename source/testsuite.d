@@ -1,3 +1,6 @@
-import unit_threaded;
+version (unittest)
+{
+    import unit_threaded;
 
-mixin runTestsMain!("androidlogger",);
+    mixin runTestsMain!("androidlogger",);
+}
